@@ -1,14 +1,15 @@
 {
-  "_comment": "Story-points → estimated_hours map. /ai/suggest-estimation returns ONLY story_points, but issues store estimated_hours, so a conversion is required. These are SANE DEFAULTS — calibrate against your org's real velocity. Every value derived from this table is flagged 'AI-suggested' for human review.",
+  "_comment": "Story-points → estimated_hours map. /ai/suggest-estimation returns ONLY story_points, but issues store estimated_hours, so a conversion is required. Every value derived from this table is flagged 'ai-estimated' for human review.",
+  "_calibration": "Anchored to the 3XA Projekt org's real estimate distribution (428 estimated issues across all projects, 2026-06-07): median 3h, p75 6h, p90 10h, max 80h — i.e. mostly small tasks. The org uses hours directly (0 issues carry story points), so these map AI-suggested points onto that real effort scale. Recalibrate for your org: re-run the analysis or just edit the map below.",
   "scale": "fibonacci",
   "map": {
-    "1": 2,
-    "2": 4,
-    "3": 8,
-    "5": 16,
-    "8": 32,
-    "13": 56,
-    "21": 96
+    "1": 1,
+    "2": 2,
+    "3": 4,
+    "5": 8,
+    "8": 13,
+    "13": 20,
+    "21": 40
   },
-  "default_hours": 8
+  "default_hours": 3
 }
