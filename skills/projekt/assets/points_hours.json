@@ -1,0 +1,14 @@
+{
+  "_comment": "Story-points → estimated_hours map. /ai/suggest-estimation returns ONLY story_points, but issues store estimated_hours, so a conversion is required. These are SANE DEFAULTS — calibrate against your org's real velocity. Every value derived from this table is flagged 'AI-suggested' for human review.",
+  "scale": "fibonacci",
+  "map": {
+    "1": 2,
+    "2": 4,
+    "3": 8,
+    "5": 16,
+    "8": 32,
+    "13": 56,
+    "21": 96
+  },
+  "default_hours": 8
+}
