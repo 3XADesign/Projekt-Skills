@@ -1,0 +1,28 @@
+name: spec-drift-check
+
+# Fails if any core cheatsheet endpoint disappears from the live Projekt OpenAPI
+# spec, so references/endpoints.md can't silently rot. Runs on push/PR + weekly.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: '0 6 * * 1'   # Mondays 06:00 UTC
+  workflow_dispatch:
+
+jobs:
+  drift:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate plugin JSON manifests
+        run: |
+          for f in .claude-plugin/plugin.json .claude-plugin/marketplace.json hooks/hooks.json; do
+            echo "jq . $f"; jq -e . "$f" > /dev/null
+          done
+      - name: Compile all Python scripts
+        run: |
+          python3 --version
+          find skills -name '*.py' -print -exec python3 -m py_compile {} +
+      - name: Check endpoint drift vs live spec
+        run: bash scripts/check_drift.sh

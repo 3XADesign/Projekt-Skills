@@ -1,0 +1,21 @@
+# Runtime working dir — ledgers + cached context (may reference org/user ids)
+.projekt-run/
+
+# Credentials — NEVER commit a PAT
+auth.json
+*.token
+*.pat
+.env
+.env.*
+
+# The 1.3 MB OpenAPI spec is fetched on demand, never committed (keeps the plugin lean)
+api-spec/*.yaml
+api-spec/*.yml
+api-spec/.index.tsv
+api-spec/.etag
+
+# OS / tooling
+.DS_Store
+__pycache__/
+*.pyc
+node_modules/

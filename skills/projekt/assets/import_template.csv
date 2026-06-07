@@ -1,0 +1,4 @@
+title,description,status,assignee,estimated_hours,priority,type,labels,external_ref
+"Set up CI pipeline","GitHub Actions: lint + test on PR",Backlog,jane@acme.com,8,high,task,"devops;ci",IMPORT-001
+"Fix login redirect loop","Safari drops the session cookie on 302",To Do,,4,critical,bug,"auth",IMPORT-002
+"Draft Q3 roadmap","Epics + milestones for next quarter",Backlog,,16,medium,epic,"planning",IMPORT-003
